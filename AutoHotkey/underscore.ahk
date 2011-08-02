@@ -13,8 +13,8 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability. 
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-;enabledIcon := "testnamingmode_16.ico" 
-;disabledIcon := "testnamingmode_disabled_16.ico" 
+enabledIcon := "underscore_on.ico" 
+disabledIcon := "underscore_off.ico" 
 IsInTestNamingMode := false 
 SetTestNamingMode(false)
 
