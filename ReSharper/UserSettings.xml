@@ -72,7 +72,7 @@
       <Changed />
     </PredefinedChanges>
     <FileTemplates>
-      <FileTemplate file="D:\dev\dotNET\settings\ReSharper\livetemplates.xml" />
+      <FileTemplate file="C:\dev\settings\ReSharper\livetemplates.xml" />
     </FileTemplates>
     <DisabledTemplates>
       <TemplateReference uid="d3682392-f046-46c5-9485-49d1bace4aeb" name="foo1" />
@@ -147,7 +147,7 @@
       <Changed />
     </PredefinedChanges>
     <FileTemplates>
-      <FileTemplate file="D:\dev\dotNET\settings\ReSharper\surroundtemplates.xml" />
+      <FileTemplate file="C:\dev\settings\ReSharper\surroundtemplates.xml" />
     </FileTemplates>
   </SurroundManager>
   <ContextActions>
@@ -202,7 +202,7 @@
       <Changed />
     </PredefinedChanges>
     <FileTemplates>
-      <FileTemplate file="D:\dev\dotNET\settings\ReSharper\filetemplates.xml" />
+      <FileTemplate file="C:\dev\settings\ReSharper\filetemplates.xml" />
     </FileTemplates>
   </FileTemplatesManager>
   <CodeStyleSettings>
@@ -214,6 +214,8 @@
       <FormatSettings>
         <ANONYMOUS_METHOD_DECLARATION_BRACES>NEXT_LINE</ANONYMOUS_METHOD_DECLARATION_BRACES>
         <CASE_BLOCK_BRACES>NEXT_LINE</CASE_BLOCK_BRACES>
+        <EXPLICIT_PRIVATE_MODIFIER>False</EXPLICIT_PRIVATE_MODIFIER>
+        <INDENT_ANONYMOUS_METHOD_BLOCK>False</INDENT_ANONYMOUS_METHOD_BLOCK>
         <INITIALIZER_BRACES>NEXT_LINE</INITIALIZER_BRACES>
         <MODIFIERS_ORDER IsNull="False">
           <Item>public</Item>
@@ -314,6 +316,58 @@ II.2.12 <HandlesEvent />
     </Match>
   </Pattern>
 
+  
+  <!--Special formatting of MSpec Specs-->
+  <Pattern RemoveAllRegions="true">
+    <Match>
+      <And Weight="100">
+        <Kind Is="class"/>
+        <HasAttribute CLRName="Machine.Specifications.SubjectAttribute" Inherit="true"/>
+      </And>
+    </Match>
+
+    <!--Establish-->
+    <Entry>
+      <Match>
+        <And>
+          <Kind Is="field"/>
+          <Name Is="(that|context)"/>
+        </And>
+      </Match>
+    </Entry>
+
+    <!--Because-->
+    <Entry>
+      <Match>
+        <And>
+          <Kind Is="field"/>
+          <Name Is="of"/>
+        </And>
+      </Match>
+    </Entry>
+    
+    <!--It-->
+    <Entry>
+      <Match>
+        <Kind Is="field"/>
+      </Match>
+    </Entry>
+    
+    <!--Static Fields-->
+    <Entry>
+      <Match>
+        <And>
+          <Kind Is="field"/>
+          <Static/>
+        </And>
+      </Match>
+      <Sort>
+        <Name/>
+      </Sort>
+    </Entry>
+  </Pattern>
+
+  
   <!--Special formatting of NUnit test fixture-->
   <Pattern RemoveAllRegions="true">
     <Match>
@@ -338,10 +392,7 @@ II.2.12 <HandlesEvent />
       </Match>
       <Group Region="Setup/Teardown"/>
     </Entry>
-    
-    <!--All other members-->
-    <Entry/>
-    
+
     <!--Test methods-->
     <Entry>
       <Match>
@@ -356,8 +407,9 @@ II.2.12 <HandlesEvent />
     </Entry>
   </Pattern>
 
+  
   <!--Default pattern-->
-  <Pattern>
+  <Pattern RemoveAllRegions="true">
 
     <!--public delegate-->
     <Entry>
@@ -370,9 +422,8 @@ II.2.12 <HandlesEvent />
       <Sort>
         <Name/>
       </Sort>
-      <Group Region="Delegates"/>
     </Entry>
-    
+
     <!--public enum-->
     <Entry>
       <Match>
@@ -384,9 +435,6 @@ II.2.12 <HandlesEvent />
       <Sort>
         <Name/>
       </Sort>
-      <Group>
-        <Name Region="${Name} enum"/>
-      </Group>
     </Entry>
 
     <!--static fields and constants-->
@@ -404,7 +452,7 @@ II.2.12 <HandlesEvent />
         <Kind Order="constant field"/>
       </Sort>
     </Entry>
-    
+
     <!--instance fields-->
     <Entry>
       <Match>
@@ -420,16 +468,6 @@ II.2.12 <HandlesEvent />
         <Name/>
       </Sort>
     </Entry>
-    
-    <!--properties, indexers-->
-    <Entry>
-      <Match>
-        <Or>
-          <Kind Is="property"/>
-          <Kind Is="indexer"/>
-        </Or>
-      </Match>
-    </Entry>
 
     <!--Constructors. Place static one first-->
     <Entry>
@@ -440,7 +478,17 @@ II.2.12 <HandlesEvent />
         <Static/>
       </Sort>
     </Entry>
- 
+
+    <!--properties, indexers-->
+    <Entry>
+      <Match>
+        <Or>
+          <Kind Is="property"/>
+          <Kind Is="indexer"/>
+        </Or>
+      </Match>
+    </Entry>
+
     <!--interface implementations-->
     <Entry>
       <Match>
@@ -452,14 +500,11 @@ II.2.12 <HandlesEvent />
       <Sort>
         <ImplementsInterface Immediate="true"/>
       </Sort>
-      <Group>
-        <ImplementsInterface Immediate="true" Region="${ImplementsInterface} Members"/>
-      </Group>
     </Entry>
-    
+
     <!--all other members-->
     <Entry/>
-    
+
     <!--nested types-->
     <Entry>
       <Match>
@@ -468,12 +513,9 @@ II.2.12 <HandlesEvent />
       <Sort>
         <Name/>
       </Sort>
-      <Group>
-        <Name Region="Nested type: ${Name}"/>
-      </Group>
     </Entry>
   </Pattern>
-  
+
 </Patterns>
 ]]></CustomMemberReorderingPatterns>
     </CSharp>
@@ -562,9 +604,41 @@ II.2.12 <HandlesEvent />
   <DefaultTextControlSchemeManager>
     <CaretRow>False</CaretRow>
   </DefaultTextControlSchemeManager>
-  <CodeCleanup SilentCleanup="Full Cleanup" RecentlyUsed="Full Cleanup" />
+  <CodeCleanup SilentCleanup="MyCleanup" RecentlyUsed="MyCleanup">
+    <Profile name="MyCleanup">
+      <AspOptimizeRegisterDirectives>False</AspOptimizeRegisterDirectives>
+      <HtmlReformatCode>True</HtmlReformatCode>
+      <CSArrangeThisQualifier>False</CSArrangeThisQualifier>
+      <CSRemoveCodeRedundancies>True</CSRemoveCodeRedundancies>
+      <CSUseAutoProperty>True</CSUseAutoProperty>
+      <CSMakeFieldReadonly>True</CSMakeFieldReadonly>
+      <CSUseVar>
+        <BehavourStyle>CAN_CHANGE_TO_IMPLICIT</BehavourStyle>
+        <LocalVariableStyle>IMPLICIT_WHEN_INITIALIZER_HAS_TYPE</LocalVariableStyle>
+        <ForeachVariableStyle>ALWAYS_IMPLICIT</ForeachVariableStyle>
+      </CSUseVar>
+      <CSUpdateFileHeader>False</CSUpdateFileHeader>
+      <VBOptimizeImports>False</VBOptimizeImports>
+      <VBShortenReferences>False</VBShortenReferences>
+      <JsInsertSemicolon>True</JsInsertSemicolon>
+      <JsReformatCode>True</JsReformatCode>
+      <CssReformatCode>False</CssReformatCode>
+      <XMLReformatCode>True</XMLReformatCode>
+      <CSOptimizeUsings>
+        <OptimizeUsings>False</OptimizeUsings>
+        <EmbraceInRegion>False</EmbraceInRegion>
+        <RegionName>
+        </RegionName>
+      </CSOptimizeUsings>
+      <CSShortenReferences>True</CSShortenReferences>
+      <VBReformatCode>False</VBReformatCode>
+      <CSReformatCode>True</CSReformatCode>
+      <CSharpFormatDocComments>True</CSharpFormatDocComments>
+      <CSReorderTypeMembers>True</CSReorderTypeMembers>
+    </Profile>
+  </CodeCleanup>
   <MetadataViewerSettings ShowNonVisibleMembers="False" ShowXmlDoc="False" ReorderMembers="True" DecompileMethodBodies="False" Language="CSHARP" />
-  <ExternalSourcesSettings NavigationMode="Sources" FirstTimeFormShown-2="False" />
+  <ExternalSourcesSettings NavigationMode="ObjectBrowser" FirstTimeFormShown-2="True" />
   <Pdb EnableDownloading="True" UseDebugInformationForNavigation="True" />
   <ParameterInfoPopupController>
     <DelegatesAsLambdas>True</DelegatesAsLambdas>

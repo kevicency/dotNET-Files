@@ -149,31 +149,7 @@
     <Variables />
     <CustomProperties />
   </Template>
-  <Template uid="498d5ae5-a613-4302-b00f-8ae0072f6004" shortcut="spec" description="A MSpec spec template" text="[Subject(typeof($TYPE$))]&#xD;&#xA;public class When_Context&#xD;&#xA;{&#xD;&#xA;	Establish context = () =&gt; { $END$ };&#xD;&#xA;&#xD;&#xA;	Because of = () =&gt; { };&#xD;&#xA;&#xD;&#xA;	It should_ = () =&gt; { };&#xD;&#xA;}" reformat="True" shortenQualifiedReferences="True">
-    <Scopes>
-      <Scope type="InCSharpFile" minimumLanguageVersion="2.0" />
-      <Scope type="InCSharpTypeAndNamespace" minimumLanguageVersion="2.0" />
-      <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
-    </Scopes>
-    <Categories>
-      <Category name="MSpec" />
-    </Categories>
-    <Variables>
-      <Variable name="TYPE" expression="" initialRange="0" />
-    </Variables>
-    <CustomProperties />
-  </Template>
   <Template uid="cb0cc99f-0aed-42a1-9f7f-c66b48c5313b" shortcut="bec" description="MSpec Because" text="Because of = () =&gt; $END$;" reformat="True" shortenQualifiedReferences="True">
-    <Scopes>
-      <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
-    </Scopes>
-    <Categories>
-      <Category name="MSpec" />
-    </Categories>
-    <Variables />
-    <CustomProperties />
-  </Template>
-  <Template uid="d8b7317a-dc5a-44e1-88e3-3a8a1b01f637" shortcut="est" description="MSpec Establish" text="Establish context = () =&gt; $END$;" reformat="True" shortenQualifiedReferences="True">
     <Scopes>
       <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
     </Scopes>
@@ -196,6 +172,31 @@
     <CustomProperties />
   </Template>
   <Template uid="43b0d7c7-14f5-42d7-8e2b-6030656188ad" shortcut="fail" description="MSpec It for Exceptions" text="static Exception Exception;&#xD;&#xA;&#xD;&#xA;It fails = () =&gt; Exception.ShouldNotBeNull();&#xD;&#xA;&#xD;&#xA;" reformat="True" shortenQualifiedReferences="True">
+    <Scopes>
+      <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
+    </Scopes>
+    <Categories>
+      <Category name="MSpec" />
+    </Categories>
+    <Variables />
+    <CustomProperties />
+  </Template>
+  <Template uid="498d5ae5-a613-4302-b00f-8ae0072f6004" shortcut="spec" description="A MSpec spec template" text="[Subject(typeof($TYPE$))]&#xD;&#xA;public class $SPEC$&#xD;&#xA;{&#xD;&#xA;	Establish context = () =&gt; { $END$ };&#xD;&#xA;&#xD;&#xA;	Because of = () =&gt; { };&#xD;&#xA;&#xD;&#xA;	It should_ = () =&gt; { };&#xD;&#xA;}" reformat="True" shortenQualifiedReferences="True">
+    <Scopes>
+      <Scope type="InCSharpFile" minimumLanguageVersion="2.0" />
+      <Scope type="InCSharpTypeAndNamespace" minimumLanguageVersion="2.0" />
+      <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
+    </Scopes>
+    <Categories>
+      <Category name="MSpec" />
+    </Categories>
+    <Variables>
+      <Variable name="TYPE" expression="" initialRange="0" />
+      <Variable name="SPEC" expression="" initialRange="0" />
+    </Variables>
+    <CustomProperties />
+  </Template>
+  <Template uid="d8b7317a-dc5a-44e1-88e3-3a8a1b01f637" shortcut="est" description="MSpec Establish" text="Establish that = () =&gt; $END$;" reformat="True" shortenQualifiedReferences="True">
     <Scopes>
       <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
     </Scopes>
