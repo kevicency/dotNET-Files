@@ -349,10 +349,13 @@ II.2.12 <HandlesEvent />
     <!--It-->
     <Entry>
       <Match>
-        <Kind Is="field"/>
+        <And>
+          <Kind Is="field"/>
+          <Not><Static/></Not>
+        </And>
       </Match>
     </Entry>
-    
+
     <!--Static Fields-->
     <Entry>
       <Match>
@@ -362,8 +365,8 @@ II.2.12 <HandlesEvent />
         </And>
       </Match>
       <Sort>
-        <Name/>
-      </Sort>
+       <Name/>
+     </Sort>
     </Entry>
   </Pattern>
 
@@ -604,14 +607,14 @@ II.2.12 <HandlesEvent />
   <DefaultTextControlSchemeManager>
     <CaretRow>False</CaretRow>
   </DefaultTextControlSchemeManager>
-  <CodeCleanup SilentCleanup="MyCleanup" RecentlyUsed="MyCleanup">
-    <Profile name="MyCleanup">
+  <CodeCleanup RecentlyUsed="MSpec Cleanup">
+    <Profile name="MSpec Cleanup">
       <AspOptimizeRegisterDirectives>False</AspOptimizeRegisterDirectives>
       <HtmlReformatCode>True</HtmlReformatCode>
       <CSArrangeThisQualifier>False</CSArrangeThisQualifier>
       <CSRemoveCodeRedundancies>True</CSRemoveCodeRedundancies>
       <CSUseAutoProperty>True</CSUseAutoProperty>
-      <CSMakeFieldReadonly>True</CSMakeFieldReadonly>
+      <CSMakeFieldReadonly>False</CSMakeFieldReadonly>
       <CSUseVar>
         <BehavourStyle>CAN_CHANGE_TO_IMPLICIT</BehavourStyle>
         <LocalVariableStyle>IMPLICIT_WHEN_INITIALIZER_HAS_TYPE</LocalVariableStyle>
@@ -625,7 +628,7 @@ II.2.12 <HandlesEvent />
       <CssReformatCode>False</CssReformatCode>
       <XMLReformatCode>True</XMLReformatCode>
       <CSOptimizeUsings>
-        <OptimizeUsings>False</OptimizeUsings>
+        <OptimizeUsings>True</OptimizeUsings>
         <EmbraceInRegion>False</EmbraceInRegion>
         <RegionName>
         </RegionName>

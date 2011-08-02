@@ -51,7 +51,7 @@ II.2.12 <HandlesEvent />
     </Match>
   </Pattern>
 
-  
+
   <!--Special formatting of MSpec Specs-->
   <Pattern RemoveAllRegions="true">
     <Match>
@@ -80,14 +80,19 @@ II.2.12 <HandlesEvent />
         </And>
       </Match>
     </Entry>
-    
+
     <!--It-->
     <Entry>
       <Match>
-        <Kind Is="field"/>
+        <And>
+          <Kind Is="field"/>
+          <Not>
+            <Static/>
+          </Not>
+        </And>
       </Match>
     </Entry>
-    
+
     <!--Static Fields-->
     <Entry>
       <Match>
@@ -102,7 +107,7 @@ II.2.12 <HandlesEvent />
     </Entry>
   </Pattern>
 
-  
+
   <!--Special formatting of NUnit test fixture-->
   <Pattern RemoveAllRegions="true">
     <Match>
@@ -142,7 +147,7 @@ II.2.12 <HandlesEvent />
     </Entry>
   </Pattern>
 
-  
+
   <!--Default pattern-->
   <Pattern RemoveAllRegions="true">
 
