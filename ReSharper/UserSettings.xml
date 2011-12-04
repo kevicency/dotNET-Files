@@ -72,7 +72,7 @@
       <Changed />
     </PredefinedChanges>
     <FileTemplates>
-      <FileTemplate file="C:\dev\settings\ReSharper\livetemplates.xml" />
+      <FileTemplate file="D:\dev\dotNET\settings\ReSharper\livetemplates.xml" />
     </FileTemplates>
     <DisabledTemplates>
       <TemplateReference uid="d3682392-f046-46c5-9485-49d1bace4aeb" name="foo1" />
@@ -147,7 +147,7 @@
       <Changed />
     </PredefinedChanges>
     <FileTemplates>
-      <FileTemplate file="C:\dev\settings\ReSharper\surroundtemplates.xml" />
+      <FileTemplate file="D:\dev\dotNET\settings\ReSharper\surroundtemplates.xml" />
     </FileTemplates>
   </SurroundManager>
   <ContextActions>
@@ -202,7 +202,7 @@
       <Changed />
     </PredefinedChanges>
     <FileTemplates>
-      <FileTemplate file="C:\dev\settings\ReSharper\filetemplates.xml" />
+      <FileTemplate file="D:\dev\dotNET\settings\ReSharper\filetemplates.xml" />
     </FileTemplates>
   </FileTemplatesManager>
   <CodeStyleSettings>
@@ -630,8 +630,7 @@ II.2.12 <HandlesEvent />
       <CSOptimizeUsings>
         <OptimizeUsings>True</OptimizeUsings>
         <EmbraceInRegion>False</EmbraceInRegion>
-        <RegionName>
-        </RegionName>
+        <RegionName />
       </CSOptimizeUsings>
       <CSShortenReferences>True</CSShortenReferences>
       <VBReformatCode>False</VBReformatCode>

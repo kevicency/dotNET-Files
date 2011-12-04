@@ -138,17 +138,6 @@
     </Variables>
     <CustomProperties />
   </Template>
-  <Template uid="ec4cf659-8b45-4356-b586-942a0a397be0" shortcut="barrow" description="" text="=()=&gt;" reformat="True" shortenQualifiedReferences="True">
-    <Scopes>
-      <Scope type="InCSharpFile" minimumLanguageVersion="2.0" />
-      <Scope type="InCSharpExpression" minimumLanguageVersion="2.0" />
-    </Scopes>
-    <Categories>
-      <Category name="MSpec" />
-    </Categories>
-    <Variables />
-    <CustomProperties />
-  </Template>
   <Template uid="cb0cc99f-0aed-42a1-9f7f-c66b48c5313b" shortcut="bec" description="MSpec Because" text="Because of = () =&gt; $END$;" reformat="True" shortenQualifiedReferences="True">
     <Scopes>
       <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
@@ -199,6 +188,17 @@
   <Template uid="d8b7317a-dc5a-44e1-88e3-3a8a1b01f637" shortcut="est" description="MSpec Establish" text="Establish that = () =&gt; $END$;" reformat="True" shortenQualifiedReferences="True">
     <Scopes>
       <Scope type="InCSharpTypeMember" minimumLanguageVersion="2.0" />
+    </Scopes>
+    <Categories>
+      <Category name="MSpec" />
+    </Categories>
+    <Variables />
+    <CustomProperties />
+  </Template>
+  <Template uid="ec4cf659-8b45-4356-b586-942a0a397be0" shortcut="rocket" description="" text="=()=&gt;" reformat="True" shortenQualifiedReferences="True">
+    <Scopes>
+      <Scope type="InCSharpFile" minimumLanguageVersion="2.0" />
+      <Scope type="InCSharpExpression" minimumLanguageVersion="2.0" />
     </Scopes>
     <Categories>
       <Category name="MSpec" />
